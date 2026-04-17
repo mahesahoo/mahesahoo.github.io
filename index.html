@@ -165,6 +165,70 @@
       opacity: 1;
     }
 
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .float {
+      animation: float 6s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+    }
+
+    @keyframes glow-pulse {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.05); }
+    }
+    .glow-orb {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 9999px;
+      background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+      filter: blur(60px);
+      opacity: 0.3;
+      animation: glow-pulse 5s ease-in-out infinite;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .cursor-blink::after {
+      content: '|';
+      display: inline-block;
+      margin-left: 2px;
+      color: var(--accent);
+      animation: blink 1s step-end infinite;
+      font-weight: 300;
+    }
+
+    @keyframes gradient-slide {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .animated-line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      background-size: 200% 100%;
+      animation: gradient-slide 4s ease infinite;
+    }
+
+    @keyframes fade-in-up {
+      from { opacity: 0; transform: translateY(30px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .tag-hover {
+      transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    }
+    .tag-hover:hover {
+      border-color: var(--border-hover);
+      color: var(--text-secondary);
+      transform: translateY(-1px);
+    }
+
     .sun-icon { display: none; }
     .moon-icon { display: block; }
     html.dark .sun-icon { display: block; }
@@ -236,8 +300,9 @@
   <!-- Hero -->
   <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-20">
     <div class="max-w-5xl w-full mx-auto grid md:grid-cols-5 gap-12 md:gap-16 items-center">
-      <div class="md:col-span-2 flex justify-center md:justify-start fade-in">
-        <div class="profile-ring">
+      <div class="md:col-span-2 flex justify-center md:justify-start fade-in relative">
+        <div class="glow-orb"></div>
+        <div class="profile-ring float">
           <div class="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden bg-surfaceCard">
             <img
               src="profile.png"
@@ -249,7 +314,7 @@
         </div>
       </div>
       <div class="md:col-span-3 text-center md:text-left fade-in" style="transition-delay: 0.15s">
-        <p class="text-textMuted text-xs tracking-[0.3em] uppercase mb-4 font-sans">Multipotentialite Explorer</p>
+        <p class="text-textMuted text-xs tracking-[0.3em] uppercase mb-4 font-sans cursor-blink">Multipotentialite Explorer</p>
         <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium leading-tight mb-6 text-textPrimary">
           Mahesh
         </h1>
@@ -258,16 +323,18 @@
           I study how minds work — biological and artificial — then design systems that amplify both.
         </p>
         <div class="flex flex-wrap gap-3 justify-center md:justify-start">
-          <a href="#projects" class="px-5 py-2.5 text-sm border border-border rounded-full text-textSecondary hover:text-textPrimary hover:border-borderHover transition-all duration-300">
-            View Work
+          <a href="#projects" class="group px-5 py-2.5 text-sm border border-border rounded-full text-textSecondary hover:text-textPrimary hover:border-accent transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,115,85,0.12)]">
+            View Work <span class="inline-block transition-transform duration-300 group-hover:translate-x-0.5">&rarr;</span>
           </a>
-          <a href="#contact" class="px-5 py-2.5 text-sm border border-border rounded-full text-textSecondary hover:text-textPrimary hover:border-borderHover transition-all duration-300">
+          <a href="#contact" class="px-5 py-2.5 text-sm border border-border rounded-full text-textSecondary hover:text-textPrimary hover:border-accent transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,115,85,0.12)]">
             Get in Touch
           </a>
         </div>
       </div>
     </div>
   </section>
+
+  <div class="max-w-xs mx-auto animated-line"></div>
 
   <!-- About -->
   <section id="about" class="py-24 md:py-32 px-6">
@@ -317,6 +384,8 @@
     </div>
   </section>
 
+  <div class="max-w-xs mx-auto animated-line"></div>
+
   <!-- Projects -->
   <section id="projects" class="py-24 md:py-32 px-6">
     <div class="max-w-5xl mx-auto">
@@ -341,9 +410,9 @@
             AI-powered productivity tracking application that analyzes work patterns and provides actionable insights to optimize daily output.
           </p>
           <div class="flex flex-wrap gap-2">
-            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted">Kotlin</span>
-            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted">Jetpack Compose</span>
-            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted">Room DB</span>
+            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted tag-hover">Kotlin</span>
+            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted tag-hover">Jetpack Compose</span>
+            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted tag-hover">Room DB</span>
           </div>
         </div>
 
@@ -360,9 +429,9 @@
             NLP-based virtual teaching assistant that answers student queries with contextual understanding and retrieval-augmented generation.
           </p>
           <div class="flex flex-wrap gap-2">
-            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted">Python</span>
-            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted">NLP</span>
-            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted">RAG</span>
+            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted tag-hover">Python</span>
+            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted tag-hover">NLP</span>
+            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted tag-hover">RAG</span>
           </div>
         </div>
 
@@ -379,8 +448,8 @@
             A science-backed 12-week progressive overload fitness protocol built on exercise science literature and periodization principles.
           </p>
           <div class="flex flex-wrap gap-2">
-            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted">Protocol Design</span>
-            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted">Periodization</span>
+            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted tag-hover">Protocol Design</span>
+            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted tag-hover">Periodization</span>
           </div>
         </div>
 
@@ -396,9 +465,15 @@
         <h2 class="font-serif text-2xl md:text-3xl font-medium mb-4 text-textPrimary">
           Let's Connect
         </h2>
-        <p class="text-textSecondary leading-relaxed mb-10 max-w-md mx-auto">
+        <p class="text-textSecondary leading-relaxed mb-8 max-w-md mx-auto">
           Open to conversations about AI systems, neuroscience, or anything at the edge of what's possible.
         </p>
+        <a href="mailto:mahesh@mahesahoo.com" class="inline-flex items-center gap-2 px-6 py-3 text-sm border border-border rounded-full text-textSecondary hover:text-textPrimary hover:border-borderHover transition-all duration-300 mb-12 group">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-textMuted group-hover:text-accent transition-colors duration-300">
+            <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+          </svg>
+          mahesh@mahesahoo.com
+        </a>
       </div>
 
       <!-- Social Icons -->
@@ -426,7 +501,7 @@
       </div>
 
       <div class="fade-in" style="transition-delay: 0.2s">
-        <div class="w-12 h-px bg-border mx-auto mb-6"></div>
+        <div class="w-12 animated-line mx-auto mb-6"></div>
         <p class="text-textMuted text-xs tracking-wide">
           &copy; 2026 &nbsp;|&nbsp; Mahesh. Built from first principles.
         </p>
