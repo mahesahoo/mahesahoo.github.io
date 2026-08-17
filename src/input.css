@@ -1,0 +1,235 @@
+@import "tailwindcss";
+
+/* Map the site's CSS-variable theme into Tailwind's utility namespace so
+   classes like bg-surface / text-textMuted / border-borderHover resolve to
+   the same variables the :root / .dark blocks below control. */
+@theme {
+  --color-surface: var(--surface);
+  --color-surfaceLight: var(--surface-light);
+  --color-surfaceCard: var(--surface-card);
+  --color-border: var(--border);
+  --color-borderHover: var(--border-hover);
+  --color-textPrimary: var(--text-primary);
+  --color-textSecondary: var(--text-secondary);
+  --color-textMuted: var(--text-muted);
+  --color-accent: var(--accent);
+
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+:root {
+  --surface: #fafaf8;
+  --surface-light: #f3f3f0;
+  --surface-card: #ffffff;
+  --border: #e8e8e4;
+  --border-hover: #d4d4cf;
+  --text-primary: #1a1a1a;
+  --text-secondary: #6b6b6b;
+  /* #737373 — was #a3a3a0, which read at ~2.4:1 against --surface and
+     failed WCAG AA (4.5:1) for the small uppercase labels/tags it's used
+     on. This clears 4.5:1 while staying visually lighter than --text-secondary. */
+  --text-muted: #737373;
+  --accent: #8b7355;
+  --nav-glass: rgba(250, 250, 248, 0.8);
+  --ring-a: #e8e8e4;
+  --ring-b: #d4d4cf;
+  --card-shadow: rgba(0, 0, 0, 0.06);
+  --selection-bg: rgba(139, 115, 85, 0.15);
+  --scrollbar-track: #fafaf8;
+  --scrollbar-thumb: #d4d4cf;
+  --scrollbar-hover: #b5b5b0;
+}
+
+html.dark {
+  --surface: #0c0c0c;
+  --surface-light: #121212;
+  --surface-card: #161616;
+  --border: #222222;
+  --border-hover: #2e2e2e;
+  --text-primary: #ededed;
+  --text-secondary: #999999;
+  /* #7d7d7d — was #5a5a5a, ~2.8:1 against --surface, same AA failure as
+     the light theme above. This clears 4.5:1. */
+  --text-muted: #7d7d7d;
+  --accent: #c8b89e;
+  --nav-glass: rgba(12, 12, 12, 0.8);
+  --ring-a: #222222;
+  --ring-b: #2e2e2e;
+  --card-shadow: rgba(0, 0, 0, 0.35);
+  --selection-bg: rgba(200, 184, 158, 0.2);
+  --scrollbar-track: #0c0c0c;
+  --scrollbar-thumb: #222222;
+  --scrollbar-hover: #2e2e2e;
+}
+
+* { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+::selection { background: var(--selection-bg); color: var(--text-primary); }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-hover); }
+
+html, body {
+  transition: background-color 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              color 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.theme-transition,
+.theme-transition *:not(img):not(svg) {
+  transition: background-color 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              color 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nav-glass {
+  background: var(--nav-glass);
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+}
+
+.card-hover {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              background-color 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-hover);
+  box-shadow: 0 12px 40px var(--card-shadow);
+}
+
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-underline:hover::after {
+  width: 100%;
+}
+
+.profile-ring {
+  background: conic-gradient(from 0deg, var(--ring-a), var(--ring-b), var(--ring-a));
+  padding: 2px;
+  border-radius: 9999px;
+  transition: background 0.5s ease;
+}
+
+.nav-link {
+  transition: color 0.3s ease;
+}
+.nav-link:hover {
+  color: var(--text-primary);
+}
+
+.mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.3s ease;
+  opacity: 0;
+}
+.mobile-menu.open {
+  max-height: 300px;
+  opacity: 1;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.float {
+  animation: float 6s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.05); }
+}
+.glow-orb {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+  filter: blur(60px);
+  opacity: 0.3;
+  animation: glow-pulse 5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.cursor-blink::after {
+  content: '|';
+  display: inline-block;
+  margin-left: 2px;
+  color: var(--accent);
+  animation: blink 1s step-end infinite;
+  font-weight: 300;
+}
+
+@keyframes gradient-slide {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animated-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  background-size: 200% 100%;
+  animation: gradient-slide 4s ease infinite;
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(30px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.tag-hover {
+  transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+.tag-hover:hover {
+  border-color: var(--border-hover);
+  color: var(--text-secondary);
+  transform: translateY(-1px);
+}
+
+.sun-icon { display: none; }
+.moon-icon { display: block; }
+html.dark .sun-icon { display: block; }
+html.dark .moon-icon { display: none; }
+
+#theme-toggle, #theme-toggle-mobile {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              color 0.3s ease;
+}
+#theme-toggle:hover, #theme-toggle-mobile:hover {
+  transform: scale(1.1);
+}
+#theme-toggle:active, #theme-toggle-mobile:active {
+  transform: scale(0.95);
+}

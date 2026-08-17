@@ -1,0 +1,14 @@
+{
+  "name": "mahesahoo.github.io",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Source tooling for the portfolio site. The published site is static HTML/CSS; this just compiles Tailwind.",
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./styles.css --minify",
+    "watch": "tailwindcss -i ./src/input.css -o ./styles.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  }
+}

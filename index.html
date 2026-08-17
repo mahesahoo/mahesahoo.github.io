@@ -3,248 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mahesh — Multipotentialite Explorer</title>
-  <meta name="description" content="Mahesh — Building Agentic Systems & Exploring Human Potential. AI Engineering, Neuroscience, and System Design." />
+  <title>Mahesh — Student & Builder</title>
+  <meta name="description" content="Mahesh — computer science student building in AI and software, curious about how minds work." />
   <meta name="theme-color" content="#0c0c0c" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="profile.png" />
+
+  <!-- Canonical + social preview -->
+  <link rel="canonical" href="https://mahesahoo.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mahesahoo.com/" />
+  <meta property="og:title" content="Mahesh — Student & Builder" />
+  <meta property="og:description" content="Computer science student building in AI and software. Grateful for the chance to learn by doing." />
+  <meta property="og:image" content="https://mahesahoo.com/profile.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Mahesh — Student & Builder" />
+  <meta name="twitter:description" content="Computer science student building in AI and software. Grateful for the chance to learn by doing." />
+  <meta name="twitter:image" content="https://mahesahoo.com/profile.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            surface: 'var(--surface)',
-            surfaceLight: 'var(--surface-light)',
-            surfaceCard: 'var(--surface-card)',
-            border: 'var(--border)',
-            borderHover: 'var(--border-hover)',
-            textPrimary: 'var(--text-primary)',
-            textSecondary: 'var(--text-secondary)',
-            textMuted: 'var(--text-muted)',
-            accent: 'var(--accent)',
-          },
-          fontFamily: {
-            serif: ['Playfair Display', 'Georgia', 'serif'],
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-          },
-        },
-      },
-    }
-  </script>
-  <style>
-    :root {
-      --surface: #fafaf8;
-      --surface-light: #f3f3f0;
-      --surface-card: #ffffff;
-      --border: #e8e8e4;
-      --border-hover: #d4d4cf;
-      --text-primary: #1a1a1a;
-      --text-secondary: #6b6b6b;
-      --text-muted: #a3a3a0;
-      --accent: #8b7355;
-      --nav-glass: rgba(250, 250, 248, 0.8);
-      --ring-a: #e8e8e4;
-      --ring-b: #d4d4cf;
-      --card-shadow: rgba(0, 0, 0, 0.06);
-      --selection-bg: rgba(139, 115, 85, 0.15);
-      --scrollbar-track: #fafaf8;
-      --scrollbar-thumb: #d4d4cf;
-      --scrollbar-hover: #b5b5b0;
-    }
-
-    html.dark {
-      --surface: #0c0c0c;
-      --surface-light: #121212;
-      --surface-card: #161616;
-      --border: #222222;
-      --border-hover: #2e2e2e;
-      --text-primary: #ededed;
-      --text-secondary: #999999;
-      --text-muted: #5a5a5a;
-      --accent: #c8b89e;
-      --nav-glass: rgba(12, 12, 12, 0.8);
-      --ring-a: #222222;
-      --ring-b: #2e2e2e;
-      --card-shadow: rgba(0, 0, 0, 0.35);
-      --selection-bg: rgba(200, 184, 158, 0.2);
-      --scrollbar-track: #0c0c0c;
-      --scrollbar-thumb: #222222;
-      --scrollbar-hover: #2e2e2e;
-    }
-
-    * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-    ::selection { background: var(--selection-bg); color: var(--text-primary); }
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: var(--scrollbar-track); }
-    ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-hover); }
-
-    html, body {
-      transition: background-color 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-                  color 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .theme-transition,
-    .theme-transition *:not(img):not(svg) {
-      transition: background-color 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-                  color 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-                  border-color 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .fade-in {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-                  transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .nav-glass {
-      background: var(--nav-glass);
-      backdrop-filter: blur(20px) saturate(1.2);
-      -webkit-backdrop-filter: blur(20px) saturate(1.2);
-    }
-
-    .card-hover {
-      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-                  border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-                  box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-                  background-color 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .card-hover:hover {
-      transform: translateY(-4px);
-      border-color: var(--border-hover);
-      box-shadow: 0 12px 40px var(--card-shadow);
-    }
-
-    .link-underline {
-      position: relative;
-    }
-    .link-underline::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: var(--accent);
-      transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .link-underline:hover::after {
-      width: 100%;
-    }
-
-    .profile-ring {
-      background: conic-gradient(from 0deg, var(--ring-a), var(--ring-b), var(--ring-a));
-      padding: 2px;
-      border-radius: 9999px;
-      transition: background 0.5s ease;
-    }
-
-    .nav-link {
-      transition: color 0.3s ease;
-    }
-    .nav-link:hover {
-      color: var(--text-primary);
-    }
-
-    .mobile-menu {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-                  opacity 0.3s ease;
-      opacity: 0;
-    }
-    .mobile-menu.open {
-      max-height: 300px;
-      opacity: 1;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-    .float {
-      animation: float 6s cubic-bezier(0.37, 0, 0.63, 1) infinite;
-    }
-
-    @keyframes glow-pulse {
-      0%, 100% { opacity: 0.3; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(1.05); }
-    }
-    .glow-orb {
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      border-radius: 9999px;
-      background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
-      filter: blur(60px);
-      opacity: 0.3;
-      animation: glow-pulse 5s ease-in-out infinite;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-    .cursor-blink::after {
-      content: '|';
-      display: inline-block;
-      margin-left: 2px;
-      color: var(--accent);
-      animation: blink 1s step-end infinite;
-      font-weight: 300;
-    }
-
-    @keyframes gradient-slide {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    .animated-line {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      background-size: 200% 100%;
-      animation: gradient-slide 4s ease infinite;
-    }
-
-    @keyframes fade-in-up {
-      from { opacity: 0; transform: translateY(30px) scale(0.98); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    .tag-hover {
-      transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-    }
-    .tag-hover:hover {
-      border-color: var(--border-hover);
-      color: var(--text-secondary);
-      transform: translateY(-1px);
-    }
-
-    .sun-icon { display: none; }
-    .moon-icon { display: block; }
-    html.dark .sun-icon { display: block; }
-    html.dark .moon-icon { display: none; }
-
-    #theme-toggle, #theme-toggle-mobile {
-      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-                  color 0.3s ease;
-    }
-    #theme-toggle:hover, #theme-toggle-mobile:hover {
-      transform: scale(1.1);
-    }
-    #theme-toggle:active, #theme-toggle-mobile:active {
-      transform: scale(0.95);
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
   <script>
     if (localStorage.getItem('theme') !== 'light') {
       document.documentElement.classList.add('dark');
@@ -314,13 +96,13 @@
         </div>
       </div>
       <div class="md:col-span-3 text-center md:text-left fade-in" style="transition-delay: 0.15s">
-        <p class="text-textMuted text-xs tracking-[0.3em] uppercase mb-4 font-sans cursor-blink">Multipotentialite Explorer</p>
+        <p class="text-textMuted text-xs tracking-[0.3em] uppercase mb-4 font-sans cursor-blink">Student of Computer Science & Data Science</p>
         <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium leading-tight mb-6 text-textPrimary">
           Mahesh
         </h1>
         <p class="text-textSecondary text-base md:text-lg leading-relaxed max-w-xl mb-8">
-          Building agentic systems at the intersection of AI engineering and human potential.
-          I study how minds work — biological and artificial — then design systems that amplify both.
+          I'm a student who builds — mostly in AI and software, sometimes in how people think and train.
+          Grateful for the teachers, timing, and long hours that got me this far, and aware there's a lot further to go.
         </p>
         <div class="flex flex-wrap gap-3 justify-center md:justify-start">
           <a href="#projects" class="group px-5 py-2.5 text-sm border border-border rounded-full text-textSecondary hover:text-textPrimary hover:border-accent transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,115,85,0.12)]">
@@ -342,26 +124,27 @@
       <div class="fade-in">
         <p class="text-textMuted text-xs tracking-[0.3em] uppercase mb-4 font-sans">About</p>
         <h2 class="font-serif text-2xl md:text-3xl font-medium mb-8 text-textPrimary">
-          Bridging Disciplines, Building Systems
+          Learning by Building
         </h2>
       </div>
       <div class="space-y-5 fade-in" style="transition-delay: 0.1s">
         <p class="text-textSecondary leading-relaxed">
-          I'm pursuing a <span class="text-textPrimary">B.Tech in Computer Science at ITER, SOA</span> alongside a
-          <span class="text-textPrimary">BS in Data Science & Applications from IIT Madras</span> — a dual-track
-          approach that reflects how I think: never choosing between depth and breadth when you can engineer both.
+          I'm currently pursuing a <span class="text-textPrimary">B.Tech in Computer Science at ITER, SOA</span>,
+          alongside a <span class="text-textPrimary">BS in Data Science & Applications from IIT Madras</span>.
+          It's a lot some weeks — but I'm grateful for the room both give me to go deep in software while
+          staying close to data and systems.
         </p>
         <p class="text-textSecondary leading-relaxed">
-          My work sits at the convergence of three domains: <span class="text-textPrimary">AI Engineering</span>
-          (building agentic systems that reason and act autonomously),
-          <span class="text-textPrimary">Neuroscience & Psychology</span>
-          (understanding the biological substrate of intelligence), and
-          <span class="text-textPrimary">System Design</span>
-          (architecting frameworks for deliberate human optimization).
+          Most of what I actually build sits between <span class="text-textPrimary">AI engineering</span> and the
+          small, unglamorous problems people run into day to day — a productivity tracker, a teaching assistant
+          that answers real questions. I'm also curious about <span class="text-textPrimary">neuroscience and
+          psychology</span>, less as a specialty and more because understanding how minds work, mine included,
+          tends to make the engineering better.
         </p>
         <p class="text-textSecondary leading-relaxed">
-          I believe constraints are design problems — not permission to settle. Every system I build
-          and every idea I pursue is held to that standard. Think from first principles, then build deliberately.
+          None of this comes from having it figured out. It comes from trying, getting stuck, asking people who
+          know more than I do, and building again. I owe a lot of it to people who answered a question, reviewed
+          a line of code, or were just patient while I learned.
         </p>
       </div>
       <div class="mt-10 pt-8 border-t border-border grid grid-cols-1 sm:grid-cols-3 gap-6 fade-in" style="transition-delay: 0.2s">
@@ -372,13 +155,13 @@
         </div>
         <div>
           <p class="text-textMuted text-xs tracking-[0.2em] uppercase mb-2">Focus</p>
-          <p class="text-textSecondary text-sm leading-relaxed">AI & Agentic Systems</p>
+          <p class="text-textSecondary text-sm leading-relaxed">AI & Software</p>
           <p class="text-textSecondary text-sm leading-relaxed">Neuroscience</p>
         </div>
         <div>
-          <p class="text-textMuted text-xs tracking-[0.2em] uppercase mb-2">Philosophy</p>
-          <p class="text-textSecondary text-sm leading-relaxed">First Principles</p>
-          <p class="text-textSecondary text-sm leading-relaxed">Deliberate Design</p>
+          <p class="text-textMuted text-xs tracking-[0.2em] uppercase mb-2">Right now</p>
+          <p class="text-textSecondary text-sm leading-relaxed">Learning by building</p>
+          <p class="text-textSecondary text-sm leading-relaxed">Grateful for good mentors</p>
         </div>
       </div>
     </div>
@@ -414,6 +197,10 @@
             <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted tag-hover">Jetpack Compose</span>
             <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted tag-hover">Room DB</span>
           </div>
+          <a href="https://github.com/mahesahoo/ProductiVize" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-1.5 mt-5 text-xs text-textSecondary hover:text-accent transition-colors duration-300">
+            View on GitHub
+            <span class="inline-block transition-transform duration-300 group-hover:translate-x-0.5">&rarr;</span>
+          </a>
         </div>
 
         <!-- Card 2 -->
@@ -433,6 +220,10 @@
             <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted tag-hover">NLP</span>
             <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted tag-hover">RAG</span>
           </div>
+          <a href="https://github.com/mahesahoo/tds-virtual-ta" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-1.5 mt-5 text-xs text-textSecondary hover:text-accent transition-colors duration-300">
+            View on GitHub
+            <span class="inline-block transition-transform duration-300 group-hover:translate-x-0.5">&rarr;</span>
+          </a>
         </div>
 
         <!-- Card 3 -->
@@ -466,7 +257,7 @@
           Let's Connect
         </h2>
         <p class="text-textSecondary leading-relaxed mb-8 max-w-md mx-auto">
-          Open to conversations about AI systems, neuroscience, or anything at the edge of what's possible.
+          Happy to talk about AI, software, or whatever you're building — I learn a lot from these conversations.
         </p>
         <a href="mailto:mahesh@mahesahoo.com" class="inline-flex items-center gap-2 px-6 py-3 text-sm border border-border rounded-full text-textSecondary hover:text-textPrimary hover:border-borderHover transition-all duration-300 mb-12 group">
           <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-textMuted group-hover:text-accent transition-colors duration-300">
@@ -503,7 +294,7 @@
       <div class="fade-in" style="transition-delay: 0.2s">
         <div class="w-12 animated-line mx-auto mb-6"></div>
         <p class="text-textMuted text-xs tracking-wide">
-          &copy; 2026 &nbsp;|&nbsp; Mahesh. Built from first principles.
+          &copy; <span id="year">2026</span> &nbsp;|&nbsp; Mahesh. Thanks for reading this far.
         </p>
       </div>
     </div>
@@ -546,6 +337,8 @@
 
     document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
     document.getElementById('theme-toggle-mobile').addEventListener('click', toggleTheme);
+
+    document.getElementById('year').textContent = new Date().getFullYear();
 
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener('click', (e) => {
