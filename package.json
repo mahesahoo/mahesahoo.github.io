@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Source tooling for the portfolio site. The published site is static HTML/CSS; this just compiles Tailwind.",
   "scripts": {
-    "build": "tailwindcss -i ./src/input.css -o ./styles.css --minify",
+    "build": "tailwindcss -i ./src/input.css -o ./styles.css --minify && python3 scripts/stamp_css.py",
     "watch": "tailwindcss -i ./src/input.css -o ./styles.css --watch"
   },
   "devDependencies": {
