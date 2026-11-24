@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Mahesh</title>
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#0c0c0c" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link href="/fonts/inter.woff2" as="font" type="font/woff2" rel="preload" crossorigin />
+  <link href="/fonts/playfair-display.woff2" as="font" type="font/woff2" rel="preload" crossorigin />
+  <link rel="stylesheet" href="/styles.css?v=20261124" />
+  <script>
+    if (localStorage.getItem('theme') !== 'light') {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+</head>
+<body class="bg-surface text-textPrimary font-sans antialiased theme-transition min-h-screen flex flex-col">
+
+  <main class="flex-1 flex items-center px-6 py-24">
+    <div class="max-w-3xl mx-auto w-full">
+
+      <p class="text-textMuted text-xs tracking-[0.3em] uppercase mb-6 font-sans">Error 404</p>
+
+      <h1 class="font-serif text-5xl md:text-7xl font-medium leading-none mb-8 text-textPrimary">
+        Nothing here.
+      </h1>
+
+      <p class="text-textSecondary text-base md:text-lg leading-relaxed max-w-xl mb-4">
+        This page doesn't exist — and unlike the retrieval system I built, there's
+        no <span class="text-textPrimary">"no matches"</span> card to explain why.
+      </p>
+      <p class="text-textMuted text-sm leading-relaxed max-w-xl mb-12">
+        You probably meant one of these:
+      </p>
+
+      <div class="flex flex-wrap gap-3 mb-16">
+        <a href="/" class="px-5 py-2.5 text-sm border border-border rounded-full text-textSecondary hover:text-textPrimary hover:border-accent transition-all duration-300">
+          Home
+        </a>
+        <a href="/#projects" class="px-5 py-2.5 text-sm border border-border rounded-full text-textSecondary hover:text-textPrimary hover:border-accent transition-all duration-300">
+          Projects
+        </a>
+        <a href="/resume" class="px-5 py-2.5 text-sm border border-border rounded-full text-textSecondary hover:text-textPrimary hover:border-accent transition-all duration-300">
+          Resume
+        </a>
+      </div>
+
+      <p class="text-textMuted text-xs tracking-wide">
+        <span class="font-serif italic text-base">M.</span> — <a href="/" class="hover:text-textPrimary transition-colors duration-300">mahesahoo.com</a>
+      </p>
+
+    </div>
+  </main>
+
+</body>
+</html>

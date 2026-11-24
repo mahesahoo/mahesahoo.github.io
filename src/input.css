@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./fonts.css";
 
 /* Map the site's CSS-variable theme into Tailwind's utility namespace so
    classes like bg-surface / text-textMuted / border-borderHover resolve to
