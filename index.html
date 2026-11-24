@@ -177,71 +177,74 @@
         </h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-
-        <!-- Card 1 -->
         <div class="card-hover border border-border rounded-xl p-6 bg-surfaceCard fade-in">
           <div class="flex items-center gap-2 mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-accent">
-              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+              <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.59 13.51 6.83 3.98"/><path d="m15.41 6.51-6.82 3.98"/>
             </svg>
-            <span class="text-textMuted text-xs tracking-wider uppercase">Productivity</span>
+            <span class="text-textMuted text-xs tracking-wider uppercase">Agents</span>
           </div>
-          <h3 class="font-serif text-lg font-medium mb-2 text-textPrimary">ProductiVize</h3>
+          <h3 class="font-serif text-lg font-medium mb-2 text-textPrimary">AI Project Mentor</h3>
           <p class="text-textSecondary text-sm leading-relaxed mb-5">
-            AI-powered productivity tracking application that analyzes work patterns and provides actionable insights to optimize daily output.
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted tag-hover">Kotlin</span>
-            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted tag-hover">Jetpack Compose</span>
-            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted tag-hover">Room DB</span>
-          </div>
-          <a href="https://github.com/mahesahoo/ProductiVize" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-1.5 mt-5 text-xs text-textSecondary hover:text-accent transition-colors duration-300">
-            View on GitHub
-            <span class="inline-block transition-transform duration-300 group-hover:translate-x-0.5">&rarr;</span>
-          </a>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="card-hover border border-border rounded-xl p-6 bg-surfaceCard fade-in" style="transition-delay: 0.1s">
-          <div class="flex items-center gap-2 mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-accent">
-              <path d="M12 6V2H8" /><path d="m8 18-4 4V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2Z" />
-            </svg>
-            <span class="text-textMuted text-xs tracking-wider uppercase">NLP</span>
-          </div>
-          <h3 class="font-serif text-lg font-medium mb-2 text-textPrimary">TDS Virtual TA</h3>
-          <p class="text-textSecondary text-sm leading-relaxed mb-5">
-            NLP-based virtual teaching assistant that answers student queries with contextual understanding and retrieval-augmented generation.
+            Agentic platform that turns a rough project idea into a full academic blueprint &mdash; feasibility, scope, stack, timeline, risks &mdash; then mentors through execution with replanning and document generation.
           </p>
           <div class="flex flex-wrap gap-2">
             <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted tag-hover">Python</span>
-            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted tag-hover">NLP</span>
-            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted tag-hover">RAG</span>
+            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted tag-hover">FastAPI</span>
+            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted tag-hover">Gemini</span>
+            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted tag-hover">Agent Orchestration</span>
           </div>
-          <a href="https://github.com/mahesahoo/tds-virtual-ta" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-1.5 mt-5 text-xs text-textSecondary hover:text-accent transition-colors duration-300">
+          <a href="https://github.com/mahesahoo/ai_projectmentor" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-1.5 mt-5 text-xs text-textSecondary hover:text-accent transition-colors duration-300">
             View on GitHub
             <span class="inline-block transition-transform duration-300 group-hover:translate-x-0.5">&rarr;</span>
           </a>
         </div>
 
-        <!-- Card 3 -->
+        <div class="card-hover border border-border rounded-xl p-6 bg-surfaceCard fade-in" style="transition-delay: 0.1s">
+          <div class="flex items-center gap-2 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-accent">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+            </svg>
+            <span class="text-textMuted text-xs tracking-wider uppercase">Retrieval</span>
+          </div>
+          <h3 class="font-serif text-lg font-medium mb-2 text-textPrimary">GATEwise</h3>
+          <p class="text-textSecondary text-sm leading-relaxed mb-5">
+            Ask a GATE DA question in plain English and get cited past-year questions with the official answer. Pure BM25, no LLM, with an honest measured hit rate published alongside it.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted tag-hover">Python</span>
+            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted tag-hover">BM25</span>
+            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted tag-hover">Retrieval</span>
+            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted tag-hover">Evaluation</span>
+          </div>
+          <a href="https://github.com/mahesahoo/gatewise" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-1.5 mt-5 text-xs text-textSecondary hover:text-accent transition-colors duration-300">
+            View on GitHub
+            <span class="inline-block transition-transform duration-300 group-hover:translate-x-0.5">&rarr;</span>
+          </a>
+        </div>
+
         <div class="card-hover border border-border rounded-xl p-6 bg-surfaceCard fade-in" style="transition-delay: 0.2s">
           <div class="flex items-center gap-2 mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-accent">
-              <path d="M18 20V6a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14" /><path d="M2 20h20" /><path d="M14 12v.01" />
+              <rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/>
             </svg>
-            <span class="text-textMuted text-xs tracking-wider uppercase">Systems</span>
+            <span class="text-textMuted text-xs tracking-wider uppercase">Product</span>
           </div>
-          <h3 class="font-serif text-lg font-medium mb-2 text-textPrimary">Hypertrophy Systems</h3>
+          <h3 class="font-serif text-lg font-medium mb-2 text-textPrimary">Pengu</h3>
           <p class="text-textSecondary text-sm leading-relaxed mb-5">
-            A science-backed 12-week progressive overload fitness protocol built on exercise science literature and periodization principles.
+            Offline-first habit tracker with streaks, pastel themes and a penguin mascot. Installs to the home screen, keeps every byte on the device, and asks for no account.
           </p>
           <div class="flex flex-wrap gap-2">
-            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted tag-hover">Protocol Design</span>
-            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted tag-hover">Periodization</span>
+            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted tag-hover">PWA</span>
+            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted tag-hover">Service Worker</span>
+            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted tag-hover">Offline</span>
+            <span class="text-xs px-2.5 py-1 rounded-full border border-border text-textMuted tag-hover">Vanilla JS</span>
           </div>
+          <a href="https://mahesahoo.com/pengu-habits/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-1.5 mt-5 text-xs text-textSecondary hover:text-accent transition-colors duration-300">
+            Try it live
+            <span class="inline-block transition-transform duration-300 group-hover:translate-x-0.5">&rarr;</span>
+          </a>
         </div>
-
       </div>
     </div>
   </section>
