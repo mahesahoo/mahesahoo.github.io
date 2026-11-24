@@ -69,9 +69,14 @@ Screenshot with Playwright if layout changed (`#projects` card links should shar
 a baseline).
 
 ## Next
-Open items live in `~/dev/NEXT.md` (repo-adjacent, not committed). Currently:
-pin repos on GitHub, fix the global git email, licences, HSTS/cache rules,
-Search Console submission.
+Open items (need a dashboard or a decision, not code):
+- GitHub: pin 6 repos on the profile (currently 0 pinned).
+- Git: `git config --global user.email "mahesahoo@users.noreply.github.com"` — the current Gmail author is private, so pushes fail with GH007 until overridden.
+- Empty descriptions on `Celebal-Technologies-Internship`, `placement-portal-mad1`; profile repo still says "about me ig".
+- No LICENSE on ai_projectmentor / gatewise / pengu-habits.
+- Cloudflare: HSTS, long-TTL cache rule for static assets, purge after deploys.
+- Submit `sitemap.xml` in Search Console (robots.txt is Cloudflare-injected, so no `Sitemap:` line can come from the repo).
+- Optional: a "now" line in the hero — declined; the About section already has a RIGHT NOW block.
 
 ## Feedback log
 Append dated one-liners here. Don't rewrite past entries.
