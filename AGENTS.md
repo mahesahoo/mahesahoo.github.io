@@ -43,7 +43,8 @@ git push origin main   # that IS the deploy
   a folder with `index.html` is the only supported way.
 - **Projects section = AI Project Mentor, GATEwise, Pengu.** ProductiVize, TDS
   Virtual TA and Hypertrophy Systems were removed on purpose. Don't re-add them.
-- **Contact email is `mahesh@mahesahoo.com`** (Zoho). Mail is on Zoho, MX points there.
+- **Contact email is `maheswar2003@zohomail.in`**. Don't switch it back to the domain
+  address.
 
 ## Gotchas that have actually burned us
 - **Push rejected with GH007** if the commit author is the Gmail address — GitHub
@@ -83,3 +84,4 @@ Append dated one-liners here. Don't rewrite past entries.
 - 2026-11-24 — Voice rule: user asked for copy to be *neutralised* once. No hype, no salesmanship.
 - 2026-11-24 — User does not want a hero "now" line; the About section already carries it.
 - 2026-11-24 — Explain changes in plain language + give a way to verify, not just commit hashes.
+- 2026-11-25 — User asked to restore the earlier contact email, `maheswar2003@zohomail.in`.
